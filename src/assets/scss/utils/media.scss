@@ -1,0 +1,52 @@
+@media all and (max-width: 375px) {
+  .modal__wrapper {
+    height: 100%;
+    width: 100%;
+  }
+
+  .modal__title {
+    padding-left: 15px;
+    font-size: 22px;
+  }
+
+  .code__phone-number, .code__phone-number-change {
+    font-size: 14px;
+  }
+
+  .code__send-again,
+  .phone__label {
+    font-size: 16px;
+  }
+
+  .phone__input {
+    font-size: 18px;
+  }
+
+  .phone__submit, .phone__submit:focus, .phone__submit:hover {
+    font-size: 20px;
+  }
+
+  .modal__close {
+    margin: 15px 15px 0 0;
+  }
+
+  .phone {
+    padding: 38px 15px 0 15px;
+  }
+
+  .modal__footer {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .code {
+    padding: 54px 15px 0 15px;
+  }
+
+  .code__input {
+    width: 65px;
+    height: 65px;
+    font-size: 30px;
+  }
+
+}
