@@ -7,6 +7,7 @@
       @focusout="focusout"
       ref="inputRef"
       id="phone"
+      inputmode="tel"
       v-model="phoneNumber"
       class="phone__input"
       :mask="phoneMask"

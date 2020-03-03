@@ -5,6 +5,7 @@
     <div class="code__input-wrapper">
       <input v-for="(item, index) in codeInputs"
              ref="codeRefs"
+             inputmode="numeric"
              v-model="item.name"
              :key="index"
              class="code__input"
