@@ -1,0 +1,54 @@
+.code {
+  padding: 54px 60px 0 48px;
+}
+
+.code__phone-number {
+  margin-bottom: 10px;
+  @include font($mainFontSize);
+  color: $secondFontColor;
+}
+
+.code__phone-number-change {
+  @include font($mainFontSize);
+  cursor: pointer;
+  color: $primary-color;
+}
+
+.code__input-wrapper {
+  position: relative;
+  display: flex;
+  margin-top: 35px;
+  margin-bottom: 49px;
+  justify-content: space-between;
+}
+
+.code__input {
+  width: 90px;
+  height: 80px;
+  text-align: center;
+  @include font(40px);
+  color: $secondFontColor;
+
+  border: 1px solid rgba(47, 128, 243, 0.32);
+  box-sizing: border-box;
+}
+
+.code__error-text {
+  @include font(16px);
+  padding-top: 4px;
+  letter-spacing: -0.4px;
+  position: absolute;
+  top: 100%;
+  color: $danger-color;
+}
+
+.code__send-again {
+  @include font($mainFontSize);
+  color: #788AA4;
+  cursor: pointer;
+  text-align: center;
+}
+
+.code__send-again_new {
+  cursor: default;
+}

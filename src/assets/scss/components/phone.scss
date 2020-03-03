@@ -1,0 +1,71 @@
+.phone {
+  position: relative;
+  padding: 38px 60px 0 48px;
+  margin-bottom: 38px;
+}
+
+.phone__label {
+  display: block;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 20px;
+  margin-bottom: 14px;
+  color: #404040;
+}
+
+.phone__input {
+  height: 65px;
+  width: 100%;
+  padding-left: 27px;
+  border: 1px solid $border-base;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+
+  @include font($mainFontSize);
+  color: $black-color;
+
+  background: linear-gradient(to right, $black-color 0%, $black-color 12%, $neutral-secondary 13%, $neutral-secondary 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  &:focus {
+    -webkit-text-fill-color: $black-color;
+    background: none;
+  }
+}
+
+.phone__submit:focus,
+.phone__submit:hover,
+.phone__submit {
+  height: 65px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $primary-color;
+  cursor: pointer;
+
+  outline: none;
+  @include font($mainFontSize);
+
+  color: $default-color;
+
+  &[disabled] {
+    background: $border-base;
+    cursor: default;
+  }
+}
+
+.phone__desc {
+  @include font(14px);
+  letter-spacing: -0.4px;
+  color: $secondFontColor;
+}
+
+.phone__error-text {
+  position: absolute;
+  font-size: 16px;
+  line-height: 16px;
+  color: $danger-color;
+}
