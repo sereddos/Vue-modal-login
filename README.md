@@ -12,3 +12,5 @@ npm install
 
 # Server with hot reload at http://localhost:8081/
 npm run dev
+
+Правильный код из смс: 1111
