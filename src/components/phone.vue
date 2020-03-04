@@ -19,7 +19,7 @@
 </template>
 
 <script>
-  import Inputmask from "inputmask";
+  import Inputmask from "inputmask"
 
   export default {
     name: 'phone',
@@ -43,10 +43,10 @@
     },
     watch: {
       mask() {
-        this.setMask();
+        this.setMask()
       },
       maskPlaceholder() {
-        this.setMask();
+        this.setMask()
       }
     },
     data() {
@@ -69,7 +69,7 @@
         }
 
         if (this.$refs.inputRef.inputmask) {
-          this.$refs.inputRef.inputmask.remove();
+          this.$refs.inputRef.inputmask.remove()
         }
       },
       setInputMask() {
@@ -82,25 +82,28 @@
       },
       click() {
         this.setMask()
-        this.setSeven()
+        this.setPrefixNumberSeven()
       },
       updateErrorState() {
-        this.disabled = !this.$refs.inputRef.inputmask.isComplete();
-        this.error = this.disabled;
+        this.disabled = !this.$refs.inputRef.inputmask.isComplete()
+        this.error = this.disabled
       },
       focusout() {
-        this.setSeven();
-        this.updateErrorState();
+        this.setPrefixNumberSeven()
+        this.updateErrorState()
       },
-      setSeven() {
-        if (!this.phoneNumber || this.phoneNumber === '+_ (___) ___-__-__') this.phoneNumber = '7';
+      setPrefixNumberSeven() {
+        const isInputEmpty = !this.phoneNumber || this.phoneNumber === '+_ (___) ___-__-__'
+        if (isInputEmpty) {
+          this.phoneNumber = '7'
+        }
       },
       submit() {
-        this.$emit('setCode', false, this.phoneNumber);
+        this.$emit('setCode', false, this.phoneNumber)
       }
     },
     mounted() {
-      this.click();
+      this.click()
     }
   };
 
