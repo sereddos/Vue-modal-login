@@ -77,17 +77,19 @@
           e.target.nextElementSibling.focus();
         }
 
-        let code = this.codeInputs.reduce(function (sum, current) {
+        const code = this.codeInputs.reduce(function (sum, current) {
           return sum + current.name;
         }, '');
 
-        if (code.length === 4 && code !== this.rightCode) {
-          this.error = true;
-          this.codeInputs = this.codeInputs.map(item => ({name: ''}));
-          this.setFocusOnFirst();
-        } else {
+        const isCodeRight = code.length === this.codeInputs.length && code !== this.rightCode;
+        if (!isCodeRight) {
           this.error = false;
+          return
         }
+
+        this.error = true;
+        this.codeInputs = this.codeInputs.map(item => ({name: ''}));
+        this.setFocusOnFirst();
       }
     },
     mounted() {

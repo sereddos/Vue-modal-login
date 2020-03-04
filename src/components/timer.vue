@@ -22,11 +22,11 @@
         return this.minutes + ":" + this.seconds;
       },
       minutes() {
-        let min = Math.floor(this.totalTime / 60);
+        const min = Math.floor(this.totalTime / 60);
         return min >= 10 ? min : '0' + min;
       },
       seconds() {
-        let sec = this.totalTime - (this.minutes * 60);
+        const sec = this.totalTime - (this.minutes * 60);
         return sec >= 10 ? sec : '0' + sec;
       }
     },
