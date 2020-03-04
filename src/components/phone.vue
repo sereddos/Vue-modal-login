@@ -3,7 +3,7 @@
     <label for="phone" class="phone__label">Номер телефона</label>
     <input
         @click="click"
-        @mouseout="focusout"
+        @keyup="updateErrorState"
         @focusout="focusout"
         ref="inputRef"
         id="phone"
@@ -85,7 +85,7 @@
         this.setPrefixNumberSeven()
       },
       updateErrorState() {
-        this.disabled = !this.$refs.inputRef.inputmask.isComplete()
+        this.disabled = this.phoneNumber.includes('_')
         this.error = this.disabled
       },
       focusout() {
