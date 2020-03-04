@@ -13,42 +13,42 @@
     },
     computed: {
       time() {
-        if (this.minutes === '00' && this.seconds === '00') {
-          this.timerStop();
-          this.changeCodeStatus();
-          return;
+        const isTimeOver = this.minutes === '00' && this.seconds === '00'
+        if (!isTimeOver) {
+          return this.minutes + ":" + this.seconds
         }
 
-        return this.minutes + ":" + this.seconds;
+        this.timerStop()
+        this.changeCodeStatus()
       },
       minutes() {
-        const min = Math.floor(this.totalTime / 60);
-        return min >= 10 ? min : '0' + min;
+        const min = Math.floor(this.totalTime / 60)
+        return min >= 10 ? min : '0' + min
       },
       seconds() {
-        const sec = this.totalTime - (this.minutes * 60);
-        return sec >= 10 ? sec : '0' + sec;
+        const sec = this.totalTime - (this.minutes * 60)
+        return sec >= 10 ? sec : '0' + sec
       }
     },
     methods: {
       timerRun() {
-        this.interval = setInterval(this.countdownTimer, 1000);
+        this.interval = setInterval(this.countdownTimer, 1000)
       },
       timerStop() {
-        clearInterval(this.interval);
+        clearInterval(this.interval)
       },
       countdownTimer() {
-        this.totalTime--;
+        this.totalTime--
       },
       changeCodeStatus() {
-        this.$emit('sendNewCode', true);
+        this.$emit('sendNewCode', true)
       }
     },
     mounted() {
-      this.timerRun();
+      this.timerRun()
     },
     beforeDestroy() {
-      this.timerStop();
+      this.timerStop()
     }
   }
 </script>
