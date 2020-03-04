@@ -20,9 +20,9 @@
 </template>
 
 <script>
-  import closeIcon from './icons/modal_close.vue';
-  import phone from './phone.vue';
-  import confirmationCode from './confirmation_code.vue';
+  import closeIcon from './icons/modal_close.vue'
+  import phone from './phone.vue'
+  import confirmationCode from './confirmation_code.vue'
 
   export default {
     name: 'modal-login',
@@ -41,25 +41,25 @@
       return {
         phone: true,
         phoneNumber: ''
-      };
+      }
     },
     computed: {
       modalTitle() {
-        return !this.phone ? 'Введите код' : 'Вход или регистрация';
+        return !this.phone ? 'Введите код' : 'Вход или регистрация'
       }
     },
     methods: {
       hide() {
-        this.visible = false;
+        this.visible = false
       },
       setCode(code, number) {
-        this.phone = code;
-        this.phoneNumber = number;
+        this.phone = code
+        this.phoneNumber = number
       },
       setNewPhone(newPhone) {
-        this.phone = newPhone;
-        this.phoneNumber = '';
+        this.phone = newPhone
+        this.phoneNumber = ''
       }
     }
-  };
+  }
 </script>

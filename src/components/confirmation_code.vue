@@ -25,7 +25,7 @@
 
 <script>
 
-  import Timer from './timer.vue';
+  import Timer from './timer.vue'
 
   export default {
     name: 'confirmation-code',
@@ -55,46 +55,46 @@
           {name: ''}
         ],
         rightCode: '1111'
-      };
+      }
     },
     methods: {
       sendNewCode() {
-        this.newCode = false;
+        this.newCode = false
       },
       sendCodeAgain() {
-        this.newCode = true;
-        this.error = false;
-        this.setFocusOnFirst();
+        this.newCode = true
+        this.error = false
+        this.setFocusOnFirst()
       },
       setFocusOnFirst() {
-        this.$refs.codeRefs[0].focus();
+        this.$refs.codeRefs[0].focus()
       },
       changePhone() {
-        this.$emit('isNewPhone', true);
+        this.$emit('isNewPhone', true)
       },
       keyup(e) {
         if (e.target.nextElementSibling && e.target.value !== '') {
-          e.target.nextElementSibling.focus();
+          e.target.nextElementSibling.focus()
         }
 
         const code = this.codeInputs.reduce(function (sum, current) {
-          return sum + current.name;
-        }, '');
+          return sum + current.name
+        }, '')
 
-        const isCodeRight = code.length === this.codeInputs.length && code !== this.rightCode;
+        const isCodeRight = code.length === this.codeInputs.length && code !== this.rightCode
         if (!isCodeRight) {
-          this.error = false;
+          this.error = false
           return
         }
 
-        this.error = true;
-        this.codeInputs = this.codeInputs.map(item => ({name: ''}));
-        this.setFocusOnFirst();
+        this.error = true
+        this.codeInputs = this.codeInputs.map(item => ({name: ''}))
+        this.setFocusOnFirst()
       }
     },
     mounted() {
-      this.setFocusOnFirst();
+      this.setFocusOnFirst()
     }
-  };
+  }
 
 </script>

@@ -55,7 +55,7 @@
         error: false,
         phoneNumber: '',
         phoneMask: '7 (999) 999-9999',
-      };
+      }
     },
     methods: {
       setMask() {
@@ -77,7 +77,7 @@
           placeholder: this.maskPlaceholder,
           showMaskOnHover: false,
           showMaskOnFocus: false
-        });
+        })
         im.mask(this.$refs.inputRef)
       },
       click() {
@@ -105,6 +105,6 @@
     mounted() {
       this.click()
     }
-  };
+  }
 
 </script>
