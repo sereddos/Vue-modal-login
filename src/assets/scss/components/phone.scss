@@ -35,6 +35,10 @@
   }
 }
 
+.phone__input_error {
+  border-color: $danger-color;
+}
+
 .phone__submit:focus,
 .phone__submit:hover,
 .phone__submit {

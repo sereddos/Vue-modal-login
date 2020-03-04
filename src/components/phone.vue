@@ -9,6 +9,7 @@
         id="phone"
         inputmode="tel"
         v-model="phoneNumber"
+        :class="{'phone__input_error' : error}"
         class="phone__input"
         :mask="phoneMask"
         placeholder="+7 (___) ___-__-__"
