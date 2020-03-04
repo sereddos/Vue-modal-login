@@ -12,20 +12,20 @@
       }
     },
     computed: {
-      time: function() {
+      time() {
         if (this.minutes === '00' && this.seconds === '00') {
           this.timerStop();
           this.changeCodeStatus();
           return;
-        } else {
-          return this.minutes + ":" + this.seconds;
         }
+
+        return this.minutes + ":" + this.seconds;
       },
-      minutes: function() {
+      minutes() {
         let min = Math.floor(this.totalTime / 60);
         return min >= 10 ? min : '0' + min;
       },
-      seconds: function() {
+      seconds() {
         let sec = this.totalTime - (this.minutes * 60);
         return sec >= 10 ? sec : '0' + sec;
       }

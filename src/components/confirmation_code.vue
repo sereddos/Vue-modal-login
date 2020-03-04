@@ -64,9 +64,9 @@
       sendCodeAgain() {
         this.newCode = true;
         this.error = false;
-        this.setFocusOnfirst();
+        this.setFocusOnFirst();
       },
-      setFocusOnfirst() {
+      setFocusOnFirst() {
         this.$refs.codeRefs[0].focus();
       },
       changePhone() {
@@ -84,14 +84,14 @@
         if (code.length === 4 && code !== this.rightCode) {
           this.error = true;
           this.codeInputs = this.codeInputs.map(item => ({name: ''}));
-          this.setFocusOnfirst();
+          this.setFocusOnFirst();
         } else {
           this.error = false;
         }
       }
     },
     mounted() {
-      this.setFocusOnfirst();
+      this.setFocusOnFirst();
     }
   };
 

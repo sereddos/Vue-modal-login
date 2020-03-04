@@ -2,17 +2,17 @@
   <div v-if="phone" class="phone">
     <label for="phone" class="phone__label">Номер телефона</label>
     <input
-      @click="click"
-      @mouseout="focusout"
-      @focusout="focusout"
-      ref="inputRef"
-      id="phone"
-      inputmode="tel"
-      v-model="phoneNumber"
-      class="phone__input"
-      :mask="phoneMask"
-      placeholder="+7 (___) ___-__-__"
-      type="tel" />
+        @click="click"
+        @mouseout="focusout"
+        @focusout="focusout"
+        ref="inputRef"
+        id="phone"
+        inputmode="tel"
+        v-model="phoneNumber"
+        class="phone__input"
+        :mask="phoneMask"
+        placeholder="+7 (___) ___-__-__"
+        type="tel"/>
     <button @click="submit" class="phone__submit" :disabled="disabled">Продолжить</button>
     <p v-if="error" class="phone__error-text">Для продолжения ведите корректный номер телефона</p>
   </div>
@@ -45,7 +45,7 @@
       mask() {
         this.setMask();
       },
-      maskPlaceholder () {
+      maskPlaceholder() {
         this.setMask();
       }
     },
@@ -58,33 +58,39 @@
       };
     },
     methods: {
-      setMask () {
-        if (this.$refs.inputRef) {
-          if (this.mask) {
-            const im = new Inputmask(this.mask, {
-              placeholder: this.maskPlaceholder,
-              showMaskOnHover: false,
-              showMaskOnFocus: false
-            });
-            im.mask(this.$refs.inputRef);
-          } else {
-            if (this.$refs.inputRef.inputmask) {
-              this.$refs.inputRef.inputmask.remove();
-            }
-          }
+      setMask() {
+        if (!this.$refs.inputRef) {
+          return
+        }
+
+        if (this.mask) {
+          this.setInputMask()
+          return
+        }
+
+        if (this.$refs.inputRef.inputmask) {
+          this.$refs.inputRef.inputmask.remove();
         }
       },
-      click() {
-        this.setMask();
-        this.setSeven();
+      setInputMask() {
+        const im = new Inputmask(this.mask, {
+          placeholder: this.maskPlaceholder,
+          showMaskOnHover: false,
+          showMaskOnFocus: false
+        });
+        im.mask(this.$refs.inputRef)
       },
-      isComplete() {
+      click() {
+        this.setMask()
+        this.setSeven()
+      },
+      updateErrorState() {
         this.disabled = !this.$refs.inputRef.inputmask.isComplete();
         this.error = this.disabled;
       },
       focusout() {
         this.setSeven();
-        this.isComplete();
+        this.updateErrorState();
       },
       setSeven() {
         if (!this.phoneNumber || this.phoneNumber === '+_ (___) ___-__-__') this.phoneNumber = '7';
@@ -93,7 +99,7 @@
         this.$emit('isCode', false, this.phoneNumber);
       }
     },
-    mounted () {
+    mounted() {
       this.click();
     }
   };
