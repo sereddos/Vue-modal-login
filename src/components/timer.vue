@@ -41,7 +41,7 @@
         this.totalTime--;
       },
       changeCodeStatus() {
-        this.$emit('setNewCode', true);
+        this.$emit('sendNewCode', true);
       }
     },
     mounted() {

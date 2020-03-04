@@ -12,13 +12,13 @@
              type="tell"
              pattern="\d[0-9]"
              maxlength="1"
-             @keyup="keyup" />
+             @keyup="keyup"/>
       <p v-if="error" class="code__error-text">Вы ввели неправильный код, попробуйте еще раз</p>
     </div>
     <p v-if="!newCode" @click="sendCodeAgain" class="code__send-again">Отправить код еще раз</p>
     <p v-else class="code__send-again code__send-again_new">
       Получить новой код можно <br>через
-      <timer v-on:setNewCode="sendNewCode"></timer>
+      <timer @sendNewCode="sendNewCode"></timer>
     </p>
   </div>
 </template>
@@ -77,7 +77,7 @@
           e.target.nextElementSibling.focus();
         }
 
-        let code = this.codeInputs.reduce(function(sum, current) {
+        let code = this.codeInputs.reduce(function (sum, current) {
           return sum + current.name;
         }, '');
 

@@ -96,7 +96,7 @@
         if (!this.phoneNumber || this.phoneNumber === '+_ (___) ___-__-__') this.phoneNumber = '7';
       },
       submit() {
-        this.$emit('isCode', false, this.phoneNumber);
+        this.$emit('setCode', false, this.phoneNumber);
       }
     },
     mounted() {

@@ -8,11 +8,12 @@
         </span>
       </div>
       <div class="modal__body">
-        <phone v-if="phone" v-on:isCode="setCode"></phone>
-        <confirmation-code v-else v-on:isNewPhone="setNewPhone" :phone="phoneNumber"></confirmation-code>
+        <phone v-if="phone" @setCode="setCode"></phone>
+        <confirmation-code v-else @isNewPhone="setNewPhone" :phone="phoneNumber"></confirmation-code>
       </div>
       <div class="modal__footer">
-        <p v-if="phone" class="phone__desc">Нажимая кнопку «Продолжить», я даю согласие на обработку моих персональных данных и принимаю настоящие <a href="#">Соглашения</a></p>
+        <p v-if="phone" class="phone__desc">Нажимая кнопку «Продолжить», я даю согласие на обработку моих персональных
+          данных и принимаю настоящие <a href="#">Соглашения</a></p>
       </div>
     </div>
   </div>
@@ -43,12 +44,12 @@
       };
     },
     computed: {
-      modalTitle () {
+      modalTitle() {
         return !this.phone ? 'Введите код' : 'Вход или регистрация';
       }
     },
     methods: {
-      hide () {
+      hide() {
         this.visible = false;
       },
       setCode(code, number) {
